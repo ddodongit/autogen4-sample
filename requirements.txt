@@ -1,1 +1,8 @@
-autogen-core==0.4.0.dev11
+autogen-core==0.4.9.2
+autogen-agentchat==0.4.9.2
+autogen-ext[openai]==0.4.9.2
+matplotlib 
+azure-identity 
+azure-ai-projects 
+azure-ai-ml 
+python-dotenv 
