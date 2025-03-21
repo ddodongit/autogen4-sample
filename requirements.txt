@@ -1,8 +1,10 @@
 autogen-core==0.4.9.2
 autogen-agentchat==0.4.9.2
-autogen-ext[openai]==0.4.9
+autogen-ext[openai]==0.4.9.2
+autogen-ext[docker]==0.4.9.2
 matplotlib 
 azure-identity 
 azure-ai-projects 
 azure-ai-ml 
-python-dotenv 
+python-dotenv
+docker 
