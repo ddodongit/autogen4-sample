@@ -8,3 +8,4 @@ azure-ai-projects
 azure-ai-ml 
 python-dotenv
 docker 
+arxiv
