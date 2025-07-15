@@ -6,9 +6,9 @@ echo "🔧 Post-create setup for Azure AI Workshop..."
 # Ensure uv is in PATH
 export PATH="$HOME/.local/bin:$PATH"
 
-# Create virtual environment with Python 3.12
+# Create virtual environment with Python 3.11 (matching the container)
 echo "📦 Creating Python virtual environment..."
-uv venv .venv --python 3.12 --seed
+uv venv .venv --python 3.11
 
 # Activate virtual environment
 source .venv/bin/activate
@@ -17,37 +17,7 @@ source .venv/bin/activate
 echo "📚 Installing Python dependencies..."
 uv pip install -e .
 
-# Install additional development dependencies
-echo "🛠️  Installing development tools..."
-uv pip install \
-    black \
-    ruff \
-    pytest \
-    jupyter \
-    jupyterlab \
-    notebook \
-    ipywidgets \
-    nbconvert
-
-# Copy environment sample file
-if [ -f ".env.sample" ] && [ ! -f ".env" ]; then
-    echo "🔧 Creating .env file from sample..."
-    cp .env.sample .env
-    echo "⚠️  Please update .env with your Azure OpenAI credentials"
-fi
-
-# Set up git configuration (if not already set)
-if [ -z "$(git config --global user.name)" ]; then
-    echo "🔧 Setting up git configuration..."
-    git config --global user.name "Codespace User"
-    git config --global user.email "user@example.com"
-fi
-
-# Create workspace settings for VS Code
-mkdir -p .vscode
-cat > .vscode/settings.json << EOF
-{
-    "python.defaultInterpreterPath": "\${workspaceFolder}/.venv/bin/python",
+echo "✅ Post-create setup completed!"
     "python.terminal.activateEnvironment": true,
     "jupyter.kernels.filter": [
         {

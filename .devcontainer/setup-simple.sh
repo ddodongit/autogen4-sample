@@ -4,18 +4,16 @@ set -e
 echo "🚀 Setting up environment..."
 
 # Update system packages
-apt-get update
+if [ "$EUID" -eq 0 ]; then
+    apt-get update
+    apt-get install -y curl git
+else
+    sudo apt-get update
+    sudo apt-get install -y curl git
+fi
 
 # Install uv (Python package manager)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 export PATH="$HOME/.local/bin:$PATH"
 
-# Install essential packages
-apt-get install -y \
-    build-essential \
-    curl \
-    git \
-    jq \
-    wget
-
-echo "✅ Setup completed!"
+echo "✅ Basic setup completed!"

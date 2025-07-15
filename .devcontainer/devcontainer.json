@@ -2,7 +2,12 @@
   "name": "AutoGen 0.4 Sample",
   "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": false,
+      "installOhMyZsh": false,
+      "upgradePackages": true
+    }
   },
   "customizations": {
     "vscode": {
@@ -49,7 +54,7 @@
       "onAutoForward": "notify"
     }
   },
-  "onCreateCommand": "bash .devcontainer/setup.sh",
+  "onCreateCommand": "apt-get update && apt-get install -y bash && bash .devcontainer/setup.sh",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   
   "remoteUser": "vscode",
