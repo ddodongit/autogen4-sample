@@ -81,6 +81,70 @@ uv pip list
 # 가상환경 활성화
 source .venv/bin/activate  # macOS/Linux
 ```
+## 📚 샘플 노트북
+
+이 프로젝트에는 Autogen 0.4(현재 0.6)의 다양한 기능을 보여주는 10개의 예제 노트북이 포함되어 있습니다:
+
+### 1. [01.quickstart.ipynb](01.quickstart.ipynb)
+**기본 시작 가이드**
+- 단일 에이전트와 간단한 날씨 도구를 사용한 기본 예제
+- `AssistantAgent`와 `RoundRobinGroupChat`의 기본 사용법
+- 실시간 콘솔 상호작용 구현
+
+### 2. [02.teams.ipynb](02.teams.ipynb)
+**팀 구성 및 종료 조건**
+- 단일 에이전트 팀의 생성과 실행
+- `TextMentionTermination`을 사용한 종료 조건 설정
+- 날씨 정보 조회 도구와 함께 하는 팀 워크플로우
+
+### 3. [03.selector-group-chat.ipynb](03.selector-group-chat.ipynb)
+**스마트 발언자 선택**
+- 모델 기반 발언자 선택 메커니즘
+- 웹 검색 및 데이터 분석을 위한 다중 에이전트 협업
+- 컨텍스트 인식 대화 관리
+
+### 4. [04.swarm.ipynb](04.swarm.ipynb)
+**스웜 패턴 구현**
+- 항공권 환불 프로세스 자동화
+- 에이전트 간 핸드오프 메커니즘
+- 역할 기반 작업 분담과 협업
+
+### 5. [05.magentic-one.ipynb](05.magentic-one.ipynb)
+**Magentic One 프레임워크**
+- 파일 서퍼, 웹 서퍼, 코더, 실행자 에이전트 통합
+- 복잡한 작업의 자동화된 완료
+- 멀티모달 웹 상호작용 지원
+
+### 6. [06.travelagent.ipynb](06.travelagent.ipynb)
+**여행 계획 에이전트**
+- 여행 계획, 현지 정보, 언어 팁, 요약 에이전트 협업
+- 역할별 전문 에이전트 구성
+- 포괄적인 여행 계획 수립 워크플로우
+
+### 7. [07.research.ipynb](07.research.ipynb)
+**연구 및 데이터 분석**
+- 구글 검색 및 주식 데이터 분석 도구
+- 실시간 데이터 수집과 분석
+- 시각화 및 보고서 생성
+
+### 8. [08.review.ipynb](08.review.ipynb)
+**리뷰 및 분석 시스템**
+- 웹 검색 기반 정보 수집
+- 자동화된 리뷰 및 분석 프로세스
+- 구조화된 정보 처리
+
+### 9. [09.debate.ipynb](09.debate.ipynb)
+**다중 에이전트 토론**
+- GSM8K 수학 문제 해결을 위한 에이전트 토론
+- 희소 통신 토폴로지를 통한 에이전트 상호작용
+- 다수결 투표를 통한 최종 답안 도출
+
+### 10. [10.code-execution.ipynb](10.code-execution.ipynb)
+**코드 생성 및 실행**
+- 사용자 정의 코드 생성 에이전트
+- Docker 컨테이너 기반 안전한 코드 실행
+- 주식 데이터 분석 및 시각화 예제
+
 ## Autogen Studio
 
 ```sh
