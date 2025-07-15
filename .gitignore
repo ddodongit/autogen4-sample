@@ -201,8 +201,6 @@ docker-compose.yaml
 /playwright-report/
 /playwright/.cache/
 
-*.py
-*.sh
 .env
 coding
 .venv
