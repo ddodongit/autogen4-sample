@@ -8,6 +8,12 @@ machine_type: "standardLinux32gb"
 prebuild:
   template: true
 
+# Post-create command to install UV
+postCreateCommand: |
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  source $HOME/.cargo/env
+  bash .devcontainer/setup.sh
+
 # Set up environment variables
 env:
   # Python settings

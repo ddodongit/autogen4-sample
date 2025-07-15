@@ -2,7 +2,10 @@
   "name": "AutoGen 0.4 Sample",
   "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers-extra/features/uv:1": {
+      "version": "latest"
+    }
   },
   "customizations": {
     "vscode": {
@@ -20,7 +23,8 @@
         "esbenp.prettier-vscode"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.defaultInterpreterPath": "./.venv/bin/python",
+        "python.terminal.activateEnvironment": true,
         "python.formatting.provider": "black",
         "python.linting.enabled": true,
         "python.linting.pylintEnabled": false,
@@ -48,6 +52,13 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "bash .devcontainer/setup.sh",
-  "remoteUser": "vscode"
+  "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && source $HOME/.cargo/env && bash .devcontainer/setup.sh",
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "UV_CACHE_DIR": "/tmp/uv-cache",
+    "UV_PYTHON_DOWNLOADS": "automatic",
+    "PATH": "/home/vscode/.cargo/bin:${PATH}"
+  }
 }

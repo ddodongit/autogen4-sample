@@ -32,6 +32,9 @@
 
 1. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/your-username/autogen04-sample) 클릭
 2. 환경이 자동으로 설정되기를 기다립니다 (약 2-3분)
+   - UV (Python 패키지 관리자) 자동 설치
+   - Python 의존성 자동 설치
+   - 개발 환경 자동 구성
 3. `.env` 파일에서 API 키를 설정합니다
 4. 어떤 노트북이든 열어서 시작하세요!
 
