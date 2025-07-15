@@ -1,61 +1,47 @@
-# DevContainer Setup
+# GitHub Codespace Configuration for Azure AI Workshop
 
-## Recent Fix Applied
+This directory contains configuration files for setting up a GitHub Codespace environment for the Azure AI Workshop project.
 
-The devcontainer was failing with setup errors. I've applied several fixes:
+## Files:
 
-### Changes Made
+- **devcontainer.json**: Main configuration file for the dev container
+- **setup.sh**: Initial setup script run during container creation
+- **post-create.sh**: Post-creation setup script for project-specific configuration
 
-1. **Fixed setup.sh**:
-   - Improved package installation order
-   - Added better error handling
-   - Enhanced uv installation verification
+## Features:
 
-2. **Updated devcontainer.json**:
-   - Changed onCreateCommand to make scripts executable
-   - Added proper PATH configuration
-   - Simplified command execution
+- **Python 3.12** environment with uv package manager
+- **Jupyter Lab/Notebook** support with all necessary extensions
+- **Azure CLI** pre-installed
+- **VS Code extensions** for Python development, Azure, and Jupyter
+- **Auto-activated virtual environment**
+- **Pre-configured workspace settings**
 
-3. **Enhanced post-create.sh**:
-   - Fixed malformed content
-   - Added better error checking
-   - Improved VS Code configuration
+## Quick Start:
 
-## Alternative Configuration
+1. Open this repository in GitHub Codespaces
+2. Wait for the automatic setup to complete
+3. Update `.env` with your Azure OpenAI credentials
+4. Start exploring the notebooks!
 
-If you're still experiencing issues, you can try the simplified configuration:
-
-1. Rename `devcontainer.json` to `devcontainer-full.json`
-2. Rename `devcontainer-simple.json` to `devcontainer.json`
-3. Rebuild the container
-
-## Manual Setup (if needed)
-
-If the automated setup still fails, you can manually set up the environment:
+## Manual Setup (if needed):
 
 ```bash
-# Install uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+# Activate virtual environment
+source .venv/bin/activate
 
-# Create virtual environment
-uv venv .venv --python 3.11
+# Start Jupyter Lab
+jupyter lab
 
-# Install dependencies
-uv pip install -e .
-
-# Start services
-uv run jupyter lab  # For Jupyter
-uv run autogenstudio ui --port 8081  # For AutoGen Studio
+# Or run the main application
+python main.py
 ```
 
-## Troubleshooting
+## Environment Variables:
 
-- **uv not found**: Make sure PATH includes `$HOME/.local/bin` and `$HOME/.cargo/bin`
-- **Permission denied**: Ensure scripts are executable with `chmod +x .devcontainer/*.sh`
-- **Python environment issues**: Try recreating the virtual environment with `uv venv .venv --python 3.11`
-- Removed extra development dependencies (can be installed later)
-- Focused on core functionality
-
-## Testing
-The container should now start properly with bash available for the setup scripts.
+Make sure to set these in your `.env` file:
+- `AZURE_OPENAI_ENDPOINT`
+- `AZURE_OPENAI_KEY`
+- `AZURE_OPENAI_DEPLOYMENT_NAME`
+- `EMBEDDING_MODEL_NAME`
+- `SERP_API_KEY`

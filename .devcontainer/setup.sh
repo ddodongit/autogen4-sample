@@ -1,31 +1,34 @@
 #!/bin/bash
 set -e
 
-echo "🚀 Setting up environment..."
+echo "🚀 Setting up Azure AI Workshop environment..."
 
 # Update system packages
 sudo apt-get update
 
-# Install essential packages first
+# Install uv (Python package manager)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+export PATH="$HOME/.local/bin:$PATH"
+
+# Install additional system dependencies
 sudo apt-get install -y \
     build-essential \
     curl \
     git \
     jq \
     wget \
-    ca-certificates
+    unzip \
+    software-properties-common \
+    apt-transport-https \
+    ca-certificates \
+    gnupg \
+    lsb-release
 
-# Install uv (Python package manager)
-sudo curl -LsSf https://astral.sh/uv/install.sh | sh
-export PATH="$HOME/.local/bin:$PATH"
+# Install Azure CLI
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-# Make sure uv is accessible
-if ! command -v uv &> /dev/null; then
-    echo "Adding uv to PATH..."
-    export PATH="$HOME/.cargo/bin:$PATH"
-fi
-
-# Verify uv installation
-uv --version
+# Install Node.js (for potential web components)
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 echo "✅ Setup completed!"
