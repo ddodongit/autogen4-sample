@@ -1,10 +1,17 @@
 #!/bin/bash
 set -e
 
-echo "🔧 Post-create setup for Azure AI Workshop..."
+echo "🔧 Post-create setup for AutoGen 0.4 Sample..."
 
 # Ensure uv is in PATH
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Verify uv is available
+if ! command -v uv &> /dev/null; then
+    echo "❌ uv not found in PATH. Please check setup script."
+    exit 1
+fi
 
 # Create virtual environment with Python 3.11 (matching the container)
 echo "📦 Creating Python virtual environment..."
@@ -17,7 +24,13 @@ source .venv/bin/activate
 echo "📚 Installing Python dependencies..."
 uv pip install -e .
 
-echo "✅ Post-create setup completed!"
+# Create .vscode directory if it doesn't exist
+mkdir -p .vscode
+
+# Create VS Code settings
+cat > .vscode/settings.json << EOF
+{
+    "python.defaultInterpreterPath": "./.venv/bin/python",
     "python.terminal.activateEnvironment": true,
     "jupyter.kernels.filter": [
         {
@@ -66,8 +79,8 @@ echo "🎉 Post-create setup completed!"
 echo ""
 echo "🔥 Quick start commands:"
 echo "  - source .venv/bin/activate  # Activate virtual environment"
-echo "  - jupyter lab                # Start Jupyter Lab"
-echo "  - python main.py             # Run main application"
+echo "  - uv run jupyter lab         # Start Jupyter Lab"
+echo "  - uv run autogenstudio ui    # Start AutoGen Studio"
 echo ""
 echo "📝 Don't forget to:"
 echo "  1. Update .env with your Azure OpenAI credentials"

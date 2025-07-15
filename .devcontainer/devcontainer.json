@@ -54,8 +54,8 @@
       "onAutoForward": "notify"
     }
   },
-  "onCreateCommand": "apt-get update && apt-get install -y bash && bash .devcontainer/setup.sh",
-  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "onCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
+  "postCreateCommand": "chmod +x .devcontainer/post-create.sh && .devcontainer/post-create.sh",
   
   "remoteUser": "vscode",
   "remoteEnv": {
@@ -63,6 +63,9 @@
     "PYTHONDONTWRITEBYTECODE": "1",
     "UV_CACHE_DIR": "/tmp/uv-cache",
     "UV_PYTHON_DOWNLOADS": "automatic",
-    "PATH": "/home/vscode/.cargo/bin:${PATH}"
+    "PATH": "/home/vscode/.local/bin:/home/vscode/.cargo/bin:${PATH}"
+  },
+  "containerEnv": {
+    "PATH": "/home/vscode/.local/bin:/home/vscode/.cargo/bin:${PATH}"
   }
 }
