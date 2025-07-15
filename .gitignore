@@ -1,3 +1,53 @@
+# uv 가상환경 및 캐시 디렉토리
+.venv/
+.uv-cache/
+
+# Python 바이트코드
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 환경 변수 파일
+.env
+.env.local
+.env.*.local
+
+# IDE 설정
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 운영체제 관련
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook 체크포인트
+.ipynb_checkpoints
+
+# 기타 빌드 아티팩트
+build/
+dist/
+*.egg-info/
+
+# 로그 파일
+*.log
+
+# 임시 파일
+*.tmp
+*.temp
+
+# 그래프 및 이미지 파일
+coding/*.png
+coding/*.jpg
+coding/*.jpeg
+coding/*.gif
+coding/*.svg
+
+# 스크립트 파일 (필요에 따라 주석 해제)
+# *.py
+# *.sh
+
 *.py
 *.sh
 .env

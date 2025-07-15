@@ -27,16 +27,63 @@
 
 - 본 샘플에는 추상화 라이브러리인 autogen_agentchat만 사용 (core 라이브러리 추가 예정)
 
+### 1. uv 설치
 ```sh
-mv .env.example .env
+# macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-* `.env` 파일 수정 후 각 노트북 실행
-* `SERPAPI_KEY`는 [SerpApi](https://serpapi.com/)에서 발급받은 API 키를 입력.
+### 2. 프로젝트 설정
+```sh
+# 환경 변수 설정
+mv .env.sample .env
 
+# 가상환경 생성 및 의존성 설치
+uv venv
+uv pip install -e .
+
+# 또는 한 번에 실행
+uv sync
+```
+
+### 3. 실행
+- `.env` 파일 수정 후 각 노트북 실행
+- `SERPAPI_KEY`는 [SerpApi](https://serpapi.com/)에서 발급받은 API 키를 입력.
+
+### 4. 자동 설정 (선택사항)
+```sh
+# 자동 설정 스크립트 실행
+./setup.sh
+```
+
+## 🎯 uv 사용법
+
+### 기본 명령어
+```sh
+# 가상환경 생성
+uv venv
+
+# 의존성 설치
+uv pip install -e .
+
+# 새 패키지 추가
+uv pip install <package-name>
+
+# 의존성 동기화
+uv sync
+
+# 패키지 목록 확인
+uv pip list
+
+# 가상환경 활성화
+source .venv/bin/activate  # macOS/Linux
+```
 ## Autogen Studio
 
 ```sh
-pip install autogenstudio
+uv pip install autogenstudio
 autogenstudio ui --port 8081
 ```
