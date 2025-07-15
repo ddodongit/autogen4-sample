@@ -1,5 +1,7 @@
 # Autogen 0.4 Samples
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/your-username/autogen04-sample)
+
 ## 주요 특징
 
 ### 1. 비동기 메시징
@@ -23,8 +25,17 @@
 ### 6. 확장성 및 분산 처리
 - 복잡한 다중 에이전트 네트워크 설계 가능
 
-## Quick Start
+## 🚀 Quick Start
 
+### 방법 1: GitHub Codespaces (권장)
+가장 빠른 시작 방법입니다. 브라우저에서 바로 실행할 수 있습니다.
+
+1. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/your-username/autogen04-sample) 클릭
+2. 환경이 자동으로 설정되기를 기다립니다 (약 2-3분)
+3. `.env` 파일에서 API 키를 설정합니다
+4. 어떤 노트북이든 열어서 시작하세요!
+
+### 방법 2: 로컬 설치
 - 본 샘플에는 추상화 라이브러리인 autogen_agentchat만 사용 (core 라이브러리 추가 예정)
 
 ### 1. uv 설치
@@ -38,26 +49,53 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 ### 2. 프로젝트 설정
 ```sh
+# 저장소 클론
+git clone https://github.com/your-username/autogen04-sample.git
+cd autogen04-sample
+
 # 환경 변수 설정
-mv .env.sample .env
+cp .env.sample .env
 
 # 가상환경 생성 및 의존성 설치
-uv venv
-uv pip install -e .
-
-# 또는 한 번에 실행
 uv sync
+
+# Playwright 브라우저 설치
+uv run playwright install
 ```
 
 ### 3. 실행
-- `.env` 파일 수정 후 각 노트북 실행
-- `SERPAPI_KEY`는 [SerpApi](https://serpapi.com/)에서 발급받은 API 키를 입력.
+- `.env` 파일에서 API 키 설정
+- 각 노트북 파일 실행
+- `SERPAPI_KEY`는 [SerpApi](https://serpapi.com/)에서 발급받은 API 키 입력
 
 ### 4. 자동 설정 (선택사항)
 ```sh
 # 자동 설정 스크립트 실행
-./setup.sh
+./.devcontainer/setup.sh
 ```
+
+## 🛠️ 개발 환경
+
+### VS Code 확장 (자동 설치됨)
+- Python
+- Pylance
+- Jupyter
+- Black Formatter
+- Flake8
+
+### 포트 설정
+- `8081`: AutoGen Studio
+- `8888`: Jupyter Lab
+- `8000`: 개발 서버
+
+## 📊 AutoGen Studio
+웹 기반 인터페이스로 에이전트를 구성하고 테스트할 수 있습니다:
+
+```sh
+uv run autogenstudio ui --port 8081
+```
+
+브라우저에서 `http://localhost:8081`로 접속하여 사용하세요.
 
 ## 🎯 uv 사용법
 
@@ -67,19 +105,35 @@ uv sync
 uv venv
 
 # 의존성 설치
-uv pip install -e .
+uv sync
 
 # 새 패키지 추가
-uv pip install <package-name>
+uv add <package-name>
 
-# 의존성 동기화
-uv sync
+# 패키지 제거
+uv remove <package-name>
 
 # 패키지 목록 확인
 uv pip list
 
 # 가상환경 활성화
 source .venv/bin/activate  # macOS/Linux
+.venv\Scripts\activate     # Windows
+```
+
+### 개발 도구
+```sh
+# Jupyter Lab 실행
+uv run jupyter lab
+
+# AutoGen Studio 실행
+uv run autogenstudio ui --port 8081
+
+# 노트북을 Python 스크립트로 변환
+uv run jupyter nbconvert --to script notebook.ipynb
+
+# 의존성 업데이트
+uv sync --upgrade
 ```
 ## 📚 샘플 노트북
 
@@ -145,9 +199,51 @@ source .venv/bin/activate  # macOS/Linux
 - Docker 컨테이너 기반 안전한 코드 실행
 - 주식 데이터 분석 및 시각화 예제
 
-## Autogen Studio
+## 🔧 기술 스택
 
-```sh
-uv pip install autogenstudio
-autogenstudio ui --port 8081
-```
+### 주요 의존성
+- **autogen-agentchat**: 에이전트 기반 대화 시스템
+- **autogen-ext**: 확장 기능 및 도구
+- **autogen-core**: 핵심 라이브러리
+- **python-dotenv**: 환경 변수 관리
+- **openai**: OpenAI API 클라이언트
+- **playwright**: 웹 자동화
+- **yfinance**: 주식 데이터 API
+- **matplotlib**: 데이터 시각화
+- **pandas**: 데이터 분석
+- **docker**: 컨테이너 실행
+
+### 개발 도구
+- **uv**: 빠른 Python 패키지 관리
+- **jupyter**: 인터랙티브 노트북
+- **black**: 코드 포맷터
+- **flake8**: 코드 린터
+
+## 🤝 기여하기
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 라이선스
+
+이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+
+## 🆘 지원
+
+문제가 발생하거나 질문이 있으시면:
+- [GitHub Issues](https://github.com/your-username/autogen04-sample/issues)에서 이슈를 생성하세요
+- [GitHub Discussions](https://github.com/your-username/autogen04-sample/discussions)에서 토론에 참여하세요
+
+## 🔗 관련 링크
+
+- [AutoGen 공식 문서](https://microsoft.github.io/autogen/)
+- [OpenAI API 문서](https://platform.openai.com/docs)
+- [UV 문서](https://docs.astral.sh/uv/)
+- [Jupyter 문서](https://jupyter.org/documentation)
+
+---
+
+⭐ 이 프로젝트가 도움이 되었다면 스타를 눌러주세요!

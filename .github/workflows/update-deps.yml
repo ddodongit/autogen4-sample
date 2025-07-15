@@ -1,0 +1,31 @@
+name: Update Dependencies
+
+on:
+  schedule:
+    - cron: "0 2 * * 1" # Weekly on Monday at 2 AM UTC
+  workflow_dispatch:
+
+jobs:
+  update-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: Update dependencies
+        run: |
+          uv sync --upgrade
+          uv export --format requirements-txt > requirements.txt
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update dependencies"
+          title: "chore: update dependencies"
+          body: "Automated dependency update by GitHub Actions"
+          branch: "update-deps"
