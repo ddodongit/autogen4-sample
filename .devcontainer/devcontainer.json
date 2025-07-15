@@ -49,7 +49,7 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && source $HOME/.cargo/env && bash .devcontainer/setup.sh",
+  "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && source $HOME/.cargo/env && [ -f .devcontainer/setup.sh ] && bash .devcontainer/setup.sh || echo 'Setup script not found, skipping...'",
   "remoteUser": "vscode",
   "remoteEnv": {
     "PYTHONUNBUFFERED": "1",
