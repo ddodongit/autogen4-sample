@@ -201,44 +201,9 @@ uv sync --upgrade
 - 사용자 정의 코드 생성 에이전트
 - Docker 컨테이너 기반 안전한 코드 실행
 - 주식 데이터 분석 및 시각화 예제
-
-## 🔧 기술 스택
-
-### 주요 의존성
-- **autogen-agentchat**: 에이전트 기반 대화 시스템
-- **autogen-ext**: 확장 기능 및 도구
-- **autogen-core**: 핵심 라이브러리
-- **python-dotenv**: 환경 변수 관리
-- **openai**: OpenAI API 클라이언트
-- **playwright**: 웹 자동화
-- **yfinance**: 주식 데이터 API
-- **matplotlib**: 데이터 시각화
-- **pandas**: 데이터 분석
-- **docker**: 컨테이너 실행
-
-### 개발 도구
-- **uv**: 빠른 Python 패키지 관리
-- **jupyter**: 인터랙티브 노트북
-- **black**: 코드 포맷터
-- **flake8**: 코드 린터
-
-## 🤝 기여하기
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## 📄 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
-
-## 🆘 지원
-
-문제가 발생하거나 질문이 있으시면:
-- [GitHub Issues](https://github.com/your-username/autogen04-sample/issues)에서 이슈를 생성하세요
-- [GitHub Discussions](https://github.com/your-username/autogen04-sample/discussions)에서 토론에 참여하세요
 
 ## 🔗 관련 링크
 
@@ -248,5 +213,3 @@ uv sync --upgrade
 - [Jupyter 문서](https://jupyter.org/documentation)
 
 ---
-
-⭐ 이 프로젝트가 도움이 되었다면 스타를 눌러주세요!
